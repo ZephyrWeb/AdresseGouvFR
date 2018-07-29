@@ -6,12 +6,8 @@ cli:
 	docker-compose exec node sh
 up:
 	docker-compose up -d $(c)
-build:
+build-docker:
 	docker-compose build
-down:
-	docker-compose down $(c)
-down-volumes:
-	docker-compose down -v $(c)
 start:
 	docker-compose start $(c)
 stop:
@@ -22,14 +18,14 @@ logs:
 	docker-compose logs -f $(c)
 
 #
-stats:
-	docker-compose exec node npm run stats
-	webpack-bundle-analyzer ./app/stats.json
-prod:
-	docker-compose exec node rm -rf app/dist/*
-	docker-compose exec node yarn build
-up-and-watch:
-	make up
-	docker-compose exec node yarn watch
+lint:
+	docker-compose exec node yarn run lint
+test:
+	docker-compose exec node yarn run test
+build:
+	docker-compose exec node yarn build-geo
+	docker-compose exec node yarn build-adresse
 install:
+	docker-compose exec node apk add --update --no-cache git
+	docker-compose exec node npm install -g ts-node typescript tslint parcel-bundler
 	docker-compose exec node yarn install

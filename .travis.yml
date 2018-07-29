@@ -1,0 +1,19 @@
+sudo: required
+
+language: node_js
+
+node_js:
+  - "node"
+
+services:
+  - docker
+
+before_install:
+- cp .env.dist .env
+- make up
+- make install
+
+script:
+- make lint
+- make test
+- make build

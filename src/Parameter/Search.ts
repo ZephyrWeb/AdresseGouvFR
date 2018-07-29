@@ -2,7 +2,7 @@ import { Format } from "./Format";
 import { Geometry } from "./Geometry";
 
 export class Search {
-    public static create(params: any) {
+    public static create(params: any) : any {
         const search = new this;
         for(const [key, value] of Object.entries(params)) {
             search[key] = value;

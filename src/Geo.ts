@@ -1,6 +1,6 @@
 import * as Axios from "axios";
 import {AxiosInstance, AxiosResponse} from "axios";
-import { Commune, Departement } from "./Model";
+import { Commune, Departement, Region } from "./Model";
 import { CommuneSearch, CommunesSearch, Search } from "./Parameter";
 
 export class Geo {
@@ -31,7 +31,7 @@ export class Geo {
         } catch (error) {
             console.error(error);
         }
-        return {};
+        return new Commune;
     }
     public async communesParDepartement(terms: CommuneSearch): Promise<Commune[]> {
         let response: AxiosResponse;
@@ -61,9 +61,9 @@ export class Geo {
         } catch (error) {
             console.error(error);
         }
-        return [];
+        return new Departement;
     }
-    public async departementsByRegion(terms: Search): Promise<Departement> {
+    public async departementsByRegion(terms: Search): Promise<Departement[]> {
         let response: AxiosResponse;
         try {
             response = await this.axios.get('/regions/'+terms.code+'/departements', {params: terms.query});
@@ -73,7 +73,7 @@ export class Geo {
         }
         return [];
     }
-    public async regions(terms: Search): Promise<Departement> {
+    public async regions(terms: Search): Promise<Region[]> {
         let response: AxiosResponse;
         try {
             response = await this.axios.get('/regions', {params: terms.query});
@@ -83,7 +83,7 @@ export class Geo {
         }
         return [];
     }
-    public async regionByCode(terms: Search): Promise<Departement> {
+    public async regionByCode(terms: Search): Promise<Region> {
         let response: AxiosResponse;
         try {
             response = await this.axios.get('/regions/'+terms.code, {params: terms.query});
@@ -91,6 +91,6 @@ export class Geo {
         } catch (error) {
             console.error(error);
         }
-        return [];
+        return new Region;
     }
 }
