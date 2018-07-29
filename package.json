@@ -1,6 +1,6 @@
 {
   "name": "geo.gouv.fr",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
@@ -10,8 +10,7 @@
     "test": "jest",
     "doc": "typedoc --out docs --mode modules src"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/history": "^4.6.2",
     "@types/jest": "^23.3.1",
