@@ -18,7 +18,11 @@ export class Adresse {
             response = await this.axios.get('/search/?q=' + terms);
             return response.data.features;
         } catch (error) {
-            // console.error(error);
+            console.error(error);
         }
     }
+}
+if(typeof(window)!=="undefined") {
+    (<any>window).GouvFr = (<any>window).GouvFr || {};
+    (<any>window).GouvFr.Adresse = Adresse;
 }

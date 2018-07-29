@@ -15,6 +15,23 @@ export class Search {
     public fields: string[] = ['nom', 'centre'];
     public format: Format = Format.json;
     public geometry: Geometry = Geometry.centre;
+    // Nombre d'éléments à retourner
+    public limit: number = 5;
+    // Only for Commune
+    // description: Code postal associé
+    public codePostal: string
+    // description: Latitude (en degrés)
+    public lat: number;
+    // description: Longitude (en degrés)
+    public lon: number;
+    // description: Nom de la commune
+    public nom: string;
+    // description: Mode de boost de la recherche par nom
+    public boost: string;
+    // description: Code du département associé
+    public codeDepartement: string;
+    // description: Code de la région associée
+    public codeRegion: string;
 
     public get query() {
         const query = {};

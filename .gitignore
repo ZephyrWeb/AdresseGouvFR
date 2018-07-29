@@ -1,6 +1,7 @@
 .env
 node_modules
-dist
+dist/*
+!/dist/data.gouv.fr.js
 .cache
 report.html
 yarn-error.log

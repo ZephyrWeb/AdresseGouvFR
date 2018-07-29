@@ -9,14 +9,17 @@ or
 
     yarn add geo.gouv.fr
 
-### Start environnement
+### Usage
 
-make up
 
-### Environnement app
 
-The .env.dist in the root dir is only make for building docker container
+### Documentation
 
-### Environnement sf
+The API documentation is here https://zephyrweb.github.io/GeoGouvFR/    
 
-Warning : copy app/.env.dist to app/.env to do variables available
+### Développement
+
+#### Start environnement
+
+    cp .env.dist .env
+    make up

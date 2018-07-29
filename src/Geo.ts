@@ -1,7 +1,7 @@
 import * as Axios from "axios";
 import {AxiosInstance, AxiosResponse} from "axios";
 import { Commune, Departement, Region } from "./Model";
-import { CommuneSearch, CommunesSearch, Search } from "./Parameter";
+import { Search } from "./Parameter";
 
 export class Geo {
     protected axios: AxiosInstance;
@@ -13,7 +13,10 @@ export class Geo {
           // headers: {'X-Custom-Header': 'foobar'}
         });
     }
-    public async communes(terms: CommunesSearch): Promise<Commune[]>{
+    public Search() {
+        return Search;
+    }
+    public async communes(terms: Search): Promise<Commune[]>{
         let response: AxiosResponse;
         try {
             response = await this.axios.get('/communes', {params: terms.query});
@@ -23,7 +26,7 @@ export class Geo {
         }
         return [];
     }
-    public async communeParCode(terms: CommuneSearch): Promise<Commune> {
+    public async communeParCode(terms: Search): Promise<Commune> {
         let response: AxiosResponse;
         try {
             response = await this.axios.get('/communes/' + terms.code, {params: terms.query});
@@ -33,7 +36,7 @@ export class Geo {
         }
         return new Commune;
     }
-    public async communesParDepartement(terms: CommuneSearch): Promise<Commune[]> {
+    public async communesParDepartement(terms: Search): Promise<Commune[]> {
         let response: AxiosResponse;
         try {
             response = await this.axios.get('/departements/' + terms.code + '/communes', {params: terms.query});

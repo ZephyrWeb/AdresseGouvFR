@@ -1,23 +1,22 @@
 {
   "name": "geo.gouv.fr",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.1",
+  "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "build-geo": "parcel build src/Geo.ts",
-    "build-adresse": "parcel build src/Adresse.ts",
+    "build": "parcel build src/index.ts -o data.gouv.fr.js",
     "watch": "parcel index.html --hmr-hostname 0.0.0.0 --hmr-port 3001",
     "lint": "tslint -c tslint.yaml 'src/**/*.{ts,tsx}'",
     "test": "jest",
     "doc": "typedoc --out docs --mode modules src"
   },
   "dependencies": {
-    "axios": "^0.18.0"
   },
   "devDependencies": {
     "@types/history": "^4.6.2",
     "@types/jest": "^23.3.1",
     "@types/node": "^10.5.2",
+    "axios": "^0.18.0",
     "dotenv": "^6.0.0",
     "jest": "^23.4.2",
     "node-sass": "^4.9.0",

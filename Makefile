@@ -23,8 +23,8 @@ lint:
 test:
 	docker-compose exec node yarn run test
 build:
-	docker-compose exec node yarn build-geo
-	docker-compose exec node yarn build-adresse
+	docker-compose exec node yarn build
+	rm -rf dist/*.br dist/*.gz dist/*.map* dist/*.map
 install:
 	docker-compose exec node apk add --update --no-cache git
 	docker-compose exec node npm install -g ts-node typescript tslint parcel-bundler
@@ -37,3 +37,7 @@ doc:
 	git commit -a -m "Update Doc"
 	git push
 	git checkout master
+publish:
+	git push
+	npm version patch
+	npm publish
