@@ -1,0 +1,17 @@
+version: '3'
+networks:
+    app: ~
+services:
+    node:
+        build: docker/node
+        volumes: ['./:/app']
+        ports:
+         - "${NODE_EXTERNAL}:1234"
+         - "${HMR_EXTERNAL}:3001"
+        environment:
+         - "TERM=xterm-color"
+        logging: { driver: "json-file", options: { max-size: "200k", max-file: "5" } }
+        networks: [app]
+        privileged: true
+        env_file:
+         - .env
