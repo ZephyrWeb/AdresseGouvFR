@@ -8,7 +8,8 @@
     "build-adresse": "parcel build src/Adresse.ts",
     "watch": "parcel index.html --hmr-hostname 0.0.0.0 --hmr-port 3001",
     "lint": "tslint -c tslint.yaml 'src/**/*.{ts,tsx}'",
-    "test": "jest"
+    "test": "jest",
+    "doc": "typedoc --out docs --mode modules src"
   },
   "dependencies": {
     "axios": "^0.18.0"
@@ -21,11 +22,12 @@
     "jest": "^23.4.2",
     "node-sass": "^4.9.0",
     "parcel-bundler": "^1.4.1",
+    "parcel-plugin-bundle-visualiser": "^1.1.2",
     "parcel-plugin-compress": "^1.0.4",
     "parcel-plugin-typescript": "^1.0.0",
     "ts-jest": "^23.0.1",
     "tslint-config-prettier": "^1.14.0",
     "typescript": "^2.9.2",
-    "parcel-plugin-bundle-visualiser": "^1.1.2"
+    "typedoc": "^0.11.1"
   }
 }

@@ -4,3 +4,4 @@ dist
 .cache
 report.html
 yarn-error.log
+docs
