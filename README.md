@@ -1,6 +1,14 @@
 Data from gouv.fr
 -----------------
 
+### Installation
+
+    npm install geo.gouv.fr
+
+or
+
+    yarn add geo.gouv.fr
+
 ### Start environnement
 
 make up

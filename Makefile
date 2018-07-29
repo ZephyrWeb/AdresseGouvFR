@@ -29,3 +29,11 @@ install:
 	docker-compose exec node apk add --update --no-cache git
 	docker-compose exec node npm install -g ts-node typescript tslint parcel-bundler
 	docker-compose exec node yarn install
+doc:
+	docker-compose exec node yarn doc
+	git checkout gh-pages
+	cp -rf docs/* .
+	git add .
+	git commit -a -m "Update Doc"
+	git push
+	git checkout master
