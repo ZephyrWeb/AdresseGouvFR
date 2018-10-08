@@ -7,8 +7,6 @@ import {Format, Geometry, Search} from './Parameter';
 const DataGouvFr = {
     Adresse, Commune, Departement, Format, Geo, Geometry, Region, Search
 };
-export {DataGouvFr}
-
-if(typeof(window)!=="undefined") {
-    (<any>window).DataGouvFr = DataGouvFr;
-}
+export {
+     DataGouvFr, Adresse, Commune, Departement, Format, Geo, Geometry, Region, Search
+};
